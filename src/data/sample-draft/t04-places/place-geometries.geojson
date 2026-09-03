@@ -1,0 +1,49 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "geom_t04_s0_placeholder",
+      "properties": {
+        "place_id": "place_t04_s0_placeholder"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [100.5, 35.5]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geom_t04_s1_placeholder",
+      "properties": {
+        "place_id": "place_t04_s1_placeholder"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [104.5, 35.5]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geom_t04_s2_placeholder",
+      "properties": {
+        "place_id": "place_t04_s2_placeholder"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [108.5, 35.5]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "geom_place_liping_city_1934_rep",
+      "properties": {
+        "place_id": "place_liping_city_1934"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [109.13469444444445, 26.23466666666667]
+      }
+    }
+  ]
+}

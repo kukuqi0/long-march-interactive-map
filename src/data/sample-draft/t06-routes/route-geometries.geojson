@@ -1,0 +1,135 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "feature_t06_r1_placeholder",
+      "properties": {
+        "geometry_ref": "geom_t06_r1_placeholder",
+        "route_segment_id": "seg_t06_r1_placeholder",
+        "alternative_id": null,
+        "alternative_label": null
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [100.5, 35.5],
+          [102.4, 36.1],
+          [104.5, 35.5]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "feature_t06_r2_placeholder",
+      "properties": {
+        "geometry_ref": "geom_t06_r2_placeholder",
+        "route_segment_id": "seg_t06_r2_placeholder",
+        "alternative_id": null,
+        "alternative_label": null
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [104.5, 35.5],
+          [106.2, 34.8],
+          [108.5, 35.5]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "feature_t06_r4_a_placeholder",
+      "properties": {
+        "geometry_ref": "geom_t06_r4_placeholder",
+        "route_segment_id": "seg_t06_r4_placeholder",
+        "alternative_id": "A",
+        "alternative_label": "替代方案A（结构测试）"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [100.5, 35.5],
+          [104.2, 37.2],
+          [108.5, 35.5]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "feature_t06_r4_b_placeholder",
+      "properties": {
+        "geometry_ref": "geom_t06_r4_placeholder",
+        "route_segment_id": "seg_t06_r4_placeholder",
+        "alternative_id": "B",
+        "alternative_label": "替代方案B（结构测试）"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [100.5, 35.5],
+          [104.1, 33.9],
+          [108.5, 35.5]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "feature_t06_r1_after_gap_placeholder",
+      "properties": {
+        "geometry_ref": "geom_t06_r1_after_gap_placeholder",
+        "route_segment_id": "seg_t06_r1_after_gap_placeholder",
+        "alternative_id": null,
+        "alternative_label": null
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [112.0, 32.0],
+          [113.0, 31.2],
+          [114.0, 31.8]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "feature_t06_r3_placeholder",
+      "properties": {
+        "geometry_ref": "geom_t06_r3_placeholder",
+        "route_segment_id": "seg_t06_r3_placeholder",
+        "alternative_id": null,
+        "alternative_label": null
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [101.0, 30.0],
+            [107.0, 30.0],
+            [108.0, 32.0],
+            [102.0, 32.5],
+            [101.0, 30.0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "feature_t06_r2_disconnected_placeholder",
+      "properties": {
+        "geometry_ref": "geom_t06_r2_disconnected_placeholder",
+        "route_segment_id": "seg_t06_r2_disconnected_placeholder",
+        "alternative_id": null,
+        "alternative_label": null
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [96.0, 28.0],
+          [98.0, 29.0],
+          [99.0, 27.5]
+        ]
+      }
+    }
+  ]
+}

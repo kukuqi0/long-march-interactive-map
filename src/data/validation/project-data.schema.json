@@ -1,0 +1,679 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/project-data.schema.json",
+  "title": "20世纪中国政治沙盘冻结数据结构",
+  "description": "03号冻结数据字典的可执行结构描述；跨实体外键和发布门槛由同目录runtime validator执行。",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "manifest": { "$ref": "#/$defs/manifest" },
+    "places": { "type": "array", "items": { "$ref": "#/$defs/place" } },
+    "historical_place_names": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/historicalPlaceName" }
+    },
+    "events": { "type": "array", "items": { "$ref": "#/$defs/event" } },
+    "organizations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/organization" }
+    },
+    "organization_relations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/organizationRelation" }
+    },
+    "routes": { "type": "array", "items": { "$ref": "#/$defs/route" } },
+    "route_segments": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/routeSegment" }
+    },
+    "claims": { "type": "array", "items": { "$ref": "#/$defs/claim" } },
+    "sources": { "type": "array", "items": { "$ref": "#/$defs/source" } },
+    "evidence_links": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/evidenceLink" }
+    },
+    "disputes": { "type": "array", "items": { "$ref": "#/$defs/dispute" } },
+    "place_geometries": { "$ref": "#/$defs/featureCollection" },
+    "route_geometries": { "$ref": "#/$defs/featureCollection" }
+  },
+  "$defs": {
+    "reviewStatus": {
+      "enum": [
+        "draft",
+        "sourced",
+        "first_review",
+        "second_review",
+        "published",
+        "needs_revision",
+        "withheld",
+        "withdrawn"
+      ]
+    },
+    "timePrecision": {
+      "enum": ["T0", "T1", "T2", "T3", "T4", "T5", "T6", "TU"]
+    },
+    "spatialPrecision": { "enum": ["S0", "S1", "S2", "S3", "S4", "S5", "SU"] },
+    "nullableString": { "type": ["string", "null"] },
+    "nullableDate": { "type": ["string", "null"], "format": "date" },
+    "commonProperties": {
+      "created_at": { "type": "string", "format": "date-time" },
+      "updated_at": { "type": "string", "format": "date-time" },
+      "data_version": { "type": "string", "minLength": 1 }
+    },
+    "manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dataset_tier",
+        "is_sample",
+        "publication_allowed",
+        "review_status",
+        "data_version",
+        "content_note"
+      ],
+      "properties": {
+        "dataset_tier": { "enum": ["sample-draft", "published"] },
+        "is_sample": { "type": "boolean" },
+        "publication_allowed": { "type": "boolean" },
+        "review_status": { "$ref": "#/$defs/reviewStatus" },
+        "data_version": { "type": "string", "minLength": 1 },
+        "content_note": { "type": "string", "minLength": 1 }
+      }
+    },
+    "place": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "place_id",
+        "modern_reference_name",
+        "geometry_type",
+        "geometry_ref",
+        "spatial_precision",
+        "match_status",
+        "match_note",
+        "review_status",
+        "created_at",
+        "updated_at",
+        "data_version"
+      ],
+      "properties": {
+        "place_id": { "type": "string", "pattern": "^place_" },
+        "modern_reference_name": { "$ref": "#/$defs/nullableString" },
+        "geometry_type": {
+          "enum": ["point", "line", "polygon", "corridor", "none"]
+        },
+        "geometry_ref": { "$ref": "#/$defs/nullableString" },
+        "spatial_precision": { "$ref": "#/$defs/spatialPrecision" },
+        "match_status": {
+          "enum": ["exact", "probable", "disputed", "unmatched"]
+        },
+        "match_note": { "$ref": "#/$defs/nullableString" },
+        "review_status": { "$ref": "#/$defs/reviewStatus" },
+        "created_at": {
+          "$ref": "#/$defs/commonProperties/properties/created_at"
+        },
+        "updated_at": {
+          "$ref": "#/$defs/commonProperties/properties/updated_at"
+        },
+        "data_version": {
+          "$ref": "#/$defs/commonProperties/properties/data_version"
+        }
+      }
+    },
+    "historicalPlaceName": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "historical_name_id",
+        "place_id",
+        "name",
+        "name_type",
+        "valid_from",
+        "valid_to",
+        "claim_id",
+        "created_at",
+        "updated_at",
+        "data_version"
+      ],
+      "properties": {
+        "historical_name_id": { "type": "string", "pattern": "^hname_" },
+        "place_id": { "type": "string", "pattern": "^place_" },
+        "name": { "type": "string", "minLength": 1 },
+        "name_type": {
+          "enum": ["official", "common", "alias", "transcription"]
+        },
+        "valid_from": { "$ref": "#/$defs/nullableDate" },
+        "valid_to": { "$ref": "#/$defs/nullableDate" },
+        "claim_id": { "type": "string", "pattern": "^claim_" },
+        "created_at": {
+          "$ref": "#/$defs/commonProperties/properties/created_at"
+        },
+        "updated_at": {
+          "$ref": "#/$defs/commonProperties/properties/updated_at"
+        },
+        "data_version": {
+          "$ref": "#/$defs/commonProperties/properties/data_version"
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "event_id",
+        "topic_id",
+        "title",
+        "event_type",
+        "time_original_text",
+        "time_start",
+        "time_end",
+        "time_precision",
+        "place_id",
+        "spatial_precision",
+        "summary",
+        "review_status",
+        "created_at",
+        "updated_at",
+        "data_version"
+      ],
+      "properties": {
+        "event_id": { "type": "string", "pattern": "^event_" },
+        "topic_id": { "type": "string", "pattern": "^topic_" },
+        "title": { "type": "string", "minLength": 1 },
+        "event_type": {
+          "enum": [
+            "battle",
+            "meeting",
+            "movement",
+            "river_crossing",
+            "mountain_crossing",
+            "rendezvous",
+            "stay",
+            "reorganization",
+            "other"
+          ]
+        },
+        "time_original_text": { "type": "string" },
+        "time_start": { "$ref": "#/$defs/nullableDate" },
+        "time_end": { "$ref": "#/$defs/nullableDate" },
+        "time_precision": { "$ref": "#/$defs/timePrecision" },
+        "place_id": {
+          "anyOf": [
+            { "type": "null" },
+            { "type": "string", "pattern": "^place_" }
+          ]
+        },
+        "spatial_precision": { "$ref": "#/$defs/spatialPrecision" },
+        "summary": { "$ref": "#/$defs/nullableString" },
+        "review_status": { "$ref": "#/$defs/reviewStatus" },
+        "created_at": {
+          "$ref": "#/$defs/commonProperties/properties/created_at"
+        },
+        "updated_at": {
+          "$ref": "#/$defs/commonProperties/properties/updated_at"
+        },
+        "data_version": {
+          "$ref": "#/$defs/commonProperties/properties/data_version"
+        }
+      }
+    },
+    "organization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "organization_id",
+        "name",
+        "organization_type",
+        "echelon",
+        "valid_from",
+        "valid_to",
+        "time_precision",
+        "review_status",
+        "created_at",
+        "updated_at",
+        "data_version"
+      ],
+      "properties": {
+        "organization_id": { "type": "string", "pattern": "^org_" },
+        "name": { "type": "string", "minLength": 1 },
+        "organization_type": {
+          "enum": ["political", "military", "temporary_detachment"]
+        },
+        "echelon": {
+          "type": ["string", "null"],
+          "enum": [
+            "aggregate",
+            "army_group",
+            "corps",
+            "division",
+            "regiment",
+            "column",
+            "detachment",
+            "unknown",
+            null
+          ]
+        },
+        "valid_from": { "$ref": "#/$defs/nullableDate" },
+        "valid_to": { "$ref": "#/$defs/nullableDate" },
+        "time_precision": { "$ref": "#/$defs/timePrecision" },
+        "description": { "$ref": "#/$defs/nullableString" },
+        "review_status": { "$ref": "#/$defs/reviewStatus" },
+        "created_at": {
+          "$ref": "#/$defs/commonProperties/properties/created_at"
+        },
+        "updated_at": {
+          "$ref": "#/$defs/commonProperties/properties/updated_at"
+        },
+        "data_version": {
+          "$ref": "#/$defs/commonProperties/properties/data_version"
+        }
+      }
+    },
+    "organizationRelation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "relation_id",
+        "subject_organization_id",
+        "relation_type",
+        "object_organization_id",
+        "valid_from",
+        "valid_to",
+        "time_precision",
+        "claim_id",
+        "review_status",
+        "created_at",
+        "updated_at",
+        "data_version"
+      ],
+      "properties": {
+        "relation_id": { "type": "string", "pattern": "^rel_" },
+        "subject_organization_id": { "type": "string", "pattern": "^org_" },
+        "relation_type": {
+          "enum": [
+            "subordinate_to",
+            "commands",
+            "split_from",
+            "merged_into",
+            "reorganized_into",
+            "renamed_to",
+            "allied_with"
+          ]
+        },
+        "object_organization_id": { "type": "string", "pattern": "^org_" },
+        "valid_from": { "$ref": "#/$defs/nullableDate" },
+        "valid_to": { "$ref": "#/$defs/nullableDate" },
+        "time_precision": { "$ref": "#/$defs/timePrecision" },
+        "claim_id": { "type": "string", "pattern": "^claim_" },
+        "review_status": { "$ref": "#/$defs/reviewStatus" },
+        "created_at": {
+          "$ref": "#/$defs/commonProperties/properties/created_at"
+        },
+        "updated_at": {
+          "$ref": "#/$defs/commonProperties/properties/updated_at"
+        },
+        "data_version": {
+          "$ref": "#/$defs/commonProperties/properties/data_version"
+        }
+      }
+    },
+    "route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "route_id",
+        "topic_id",
+        "organization_id",
+        "title",
+        "route_role",
+        "review_status",
+        "created_at",
+        "updated_at",
+        "data_version"
+      ],
+      "properties": {
+        "route_id": { "type": "string", "pattern": "^route_" },
+        "topic_id": { "type": "string", "pattern": "^topic_" },
+        "organization_id": { "type": "string", "pattern": "^org_" },
+        "title": { "type": "string", "minLength": 1 },
+        "route_role": { "enum": ["main", "branch", "related"] },
+        "review_status": { "$ref": "#/$defs/reviewStatus" },
+        "created_at": {
+          "$ref": "#/$defs/commonProperties/properties/created_at"
+        },
+        "updated_at": {
+          "$ref": "#/$defs/commonProperties/properties/updated_at"
+        },
+        "data_version": {
+          "$ref": "#/$defs/commonProperties/properties/data_version"
+        }
+      }
+    },
+    "routeSegment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "route_segment_id",
+        "route_id",
+        "sequence_no",
+        "organization_id",
+        "from_place_id",
+        "to_place_id",
+        "time_original_text",
+        "time_start",
+        "time_end",
+        "time_precision",
+        "movement_type",
+        "route_certainty",
+        "spatial_precision",
+        "geometry_ref",
+        "geometry_method",
+        "uncertainty_note",
+        "review_status",
+        "created_at",
+        "updated_at",
+        "data_version"
+      ],
+      "properties": {
+        "route_segment_id": { "type": "string", "pattern": "^seg_" },
+        "route_id": { "type": "string", "pattern": "^route_" },
+        "sequence_no": { "type": "integer", "minimum": 1 },
+        "organization_id": { "type": "string", "pattern": "^org_" },
+        "from_place_id": {
+          "anyOf": [
+            { "type": "null" },
+            { "type": "string", "pattern": "^place_" }
+          ]
+        },
+        "to_place_id": {
+          "anyOf": [
+            { "type": "null" },
+            { "type": "string", "pattern": "^place_" }
+          ]
+        },
+        "time_original_text": { "type": "string" },
+        "time_start": { "$ref": "#/$defs/nullableDate" },
+        "time_end": { "$ref": "#/$defs/nullableDate" },
+        "time_precision": { "$ref": "#/$defs/timePrecision" },
+        "movement_type": {
+          "enum": [
+            "advance",
+            "retreat",
+            "transfer",
+            "branch",
+            "rendezvous",
+            "stay",
+            "river_crossing",
+            "mountain_crossing",
+            "unknown"
+          ]
+        },
+        "route_certainty": { "enum": ["R1", "R2", "R3", "R4", "R5", "RU"] },
+        "spatial_precision": { "$ref": "#/$defs/spatialPrecision" },
+        "geometry_ref": { "$ref": "#/$defs/nullableString" },
+        "geometry_method": {
+          "enum": [
+            "source_trace",
+            "point_sequence",
+            "corridor",
+            "direction_only",
+            "none"
+          ]
+        },
+        "uncertainty_note": { "$ref": "#/$defs/nullableString" },
+        "review_status": { "$ref": "#/$defs/reviewStatus" },
+        "created_at": {
+          "$ref": "#/$defs/commonProperties/properties/created_at"
+        },
+        "updated_at": {
+          "$ref": "#/$defs/commonProperties/properties/updated_at"
+        },
+        "data_version": {
+          "$ref": "#/$defs/commonProperties/properties/data_version"
+        }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_id",
+        "subject_type",
+        "subject_id",
+        "predicate",
+        "object_type",
+        "object_value",
+        "claim_data_state",
+        "time_precision",
+        "spatial_precision",
+        "claim_confidence",
+        "review_status",
+        "created_at",
+        "updated_at",
+        "data_version"
+      ],
+      "properties": {
+        "claim_id": { "type": "string", "pattern": "^claim_" },
+        "subject_type": {
+          "enum": [
+            "topic",
+            "organization",
+            "person",
+            "place",
+            "event",
+            "route_segment",
+            "relation"
+          ]
+        },
+        "subject_id": { "type": "string", "minLength": 1 },
+        "predicate": {
+          "enum": [
+            "renamed_to",
+            "had_participant",
+            "had_name",
+            "route_geometry_variant"
+          ]
+        },
+        "object_type": {
+          "enum": ["entity", "literal", "date_range", "geometry", "unknown"]
+        },
+        "object_value": { "$ref": "#/$defs/nullableString" },
+        "claim_data_state": {
+          "enum": ["asserted", "inferred", "disputed", "unknown"]
+        },
+        "time_precision": {
+          "anyOf": [{ "type": "null" }, { "$ref": "#/$defs/timePrecision" }]
+        },
+        "spatial_precision": {
+          "anyOf": [{ "type": "null" }, { "$ref": "#/$defs/spatialPrecision" }]
+        },
+        "claim_confidence": { "enum": ["C-A", "C-B", "C-C", "C-D", "C-U"] },
+        "review_status": { "$ref": "#/$defs/reviewStatus" },
+        "created_at": {
+          "$ref": "#/$defs/commonProperties/properties/created_at"
+        },
+        "updated_at": {
+          "$ref": "#/$defs/commonProperties/properties/updated_at"
+        },
+        "data_version": {
+          "$ref": "#/$defs/commonProperties/properties/data_version"
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "source_type",
+        "title",
+        "creator",
+        "edition",
+        "publication_year",
+        "publisher_or_archive",
+        "source_quality",
+        "review_status",
+        "created_at",
+        "updated_at",
+        "data_version"
+      ],
+      "properties": {
+        "source_id": { "type": "string", "pattern": "^src_" },
+        "source_type": {
+          "enum": [
+            "ST1",
+            "ST2",
+            "ST3",
+            "ST4",
+            "ST5",
+            "ST6",
+            "ST7",
+            "ST8",
+            "ST9",
+            "ST10"
+          ]
+        },
+        "title": { "type": "string", "minLength": 1 },
+        "creator": { "$ref": "#/$defs/nullableString" },
+        "edition": { "$ref": "#/$defs/nullableString" },
+        "publication_year": { "type": ["integer", "null"] },
+        "publisher_or_archive": { "$ref": "#/$defs/nullableString" },
+        "source_quality": { "enum": ["Q1", "Q2", "Q3", "Q4", "Q5", "QX"] },
+        "public_url": { "type": ["string", "null"], "format": "uri" },
+        "file_location": { "$ref": "#/$defs/nullableString" },
+        "review_status": { "$ref": "#/$defs/reviewStatus" },
+        "created_at": {
+          "$ref": "#/$defs/commonProperties/properties/created_at"
+        },
+        "updated_at": {
+          "$ref": "#/$defs/commonProperties/properties/updated_at"
+        },
+        "data_version": {
+          "$ref": "#/$defs/commonProperties/properties/data_version"
+        }
+      }
+    },
+    "evidenceLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_link_id",
+        "claim_id",
+        "source_id",
+        "evidence_relation",
+        "locator",
+        "excerpt",
+        "interpretation_note",
+        "review_status",
+        "created_at",
+        "updated_at",
+        "data_version"
+      ],
+      "properties": {
+        "evidence_link_id": { "type": "string", "pattern": "^ev_" },
+        "claim_id": { "type": "string", "pattern": "^claim_" },
+        "source_id": { "type": "string", "pattern": "^src_" },
+        "evidence_relation": {
+          "enum": ["supports", "contradicts", "background"]
+        },
+        "locator": { "$ref": "#/$defs/nullableString" },
+        "excerpt": { "$ref": "#/$defs/nullableString" },
+        "interpretation_note": { "$ref": "#/$defs/nullableString" },
+        "review_status": { "$ref": "#/$defs/reviewStatus" },
+        "created_at": {
+          "$ref": "#/$defs/commonProperties/properties/created_at"
+        },
+        "updated_at": {
+          "$ref": "#/$defs/commonProperties/properties/updated_at"
+        },
+        "data_version": {
+          "$ref": "#/$defs/commonProperties/properties/data_version"
+        }
+      }
+    },
+    "dispute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dispute_id",
+        "title",
+        "dispute_type",
+        "dispute_status",
+        "competing_claim_ids",
+        "adopted_claim_id",
+        "editorial_note",
+        "review_status",
+        "created_at",
+        "updated_at",
+        "data_version"
+      ],
+      "properties": {
+        "dispute_id": { "type": "string", "pattern": "^dispute_" },
+        "title": { "type": "string", "minLength": 1 },
+        "dispute_type": {
+          "enum": [
+            "date",
+            "place",
+            "route",
+            "participant",
+            "organization",
+            "interpretation"
+          ]
+        },
+        "dispute_status": { "enum": ["D0", "D1", "D2", "D3", "D4", "D5"] },
+        "competing_claim_ids": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^claim_" }
+        },
+        "adopted_claim_id": {
+          "anyOf": [
+            { "type": "null" },
+            { "type": "string", "pattern": "^claim_" }
+          ]
+        },
+        "editorial_note": { "type": "string", "minLength": 1 },
+        "review_status": { "$ref": "#/$defs/reviewStatus" },
+        "created_at": {
+          "$ref": "#/$defs/commonProperties/properties/created_at"
+        },
+        "updated_at": {
+          "$ref": "#/$defs/commonProperties/properties/updated_at"
+        },
+        "data_version": {
+          "$ref": "#/$defs/commonProperties/properties/data_version"
+        }
+      }
+    },
+    "featureCollection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "features"],
+      "properties": {
+        "type": { "const": "FeatureCollection" },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "id", "properties", "geometry"],
+            "properties": {
+              "type": { "const": "Feature" },
+              "id": { "type": "string", "minLength": 1 },
+              "properties": { "type": "object" },
+              "geometry": {
+                "type": "object",
+                "required": ["type", "coordinates"],
+                "properties": {
+                  "type": { "enum": ["Point", "LineString", "Polygon"] },
+                  "coordinates": { "type": "array", "minItems": 1 }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

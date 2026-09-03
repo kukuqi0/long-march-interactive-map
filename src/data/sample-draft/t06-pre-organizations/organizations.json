@@ -1,0 +1,30 @@
+[
+  {
+    "organization_id": "org_central_red_army",
+    "name": "中央红军",
+    "organization_type": "military",
+    "echelon": "aggregate",
+    "valid_from": null,
+    "valid_to": null,
+    "time_precision": "TU",
+    "description": "开发期聚合对象；聚合显示不代表所有下级单位在同一时间、同一地点或使用同一路线。名称、时间范围、组织性质及其他历史字段仍待人工核验；被路线引用不会提升其可信度或审核状态；本记录不是完整组织体系或正式历史编制结论，仅为不可发布的结构测试数据。",
+    "review_status": "draft",
+    "created_at": "2026-07-22T00:00:00.000Z",
+    "updated_at": "2026-07-22T00:00:00.000Z",
+    "data_version": "v0.2-t06-pre-sample-draft"
+  },
+  {
+    "organization_id": "org_red_first_corps",
+    "name": "中国工农红军第一军团",
+    "organization_type": "military",
+    "echelon": "corps",
+    "valid_from": "1934-10-01",
+    "valid_to": "1935-09-22",
+    "time_precision": "T4",
+    "description": "该组织早于1934-10-01已经存在；1934-10-01仅为当前MVP专题的数据覆盖裁剪下界，不是成立日期，UI不得将其显示为成立日期。1935-07-21正式改称“中国工农红军第一军”；1935-09-22起本次首批连续对象不再有效。本对象不代表1935年11月恢复后的新红一军团，仍为draft、不可发布样例。",
+    "review_status": "draft",
+    "created_at": "2026-08-24T00:00:00.000Z",
+    "updated_at": "2026-08-24T00:00:00.000Z",
+    "data_version": "v0.2-t06-pre-sample-draft"
+  }
+]

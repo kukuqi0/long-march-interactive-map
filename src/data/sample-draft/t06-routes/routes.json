@@ -1,0 +1,24 @@
+[
+  {
+    "route_id": "route_t06_main_placeholder",
+    "topic_id": "topic_long_march_v1",
+    "organization_id": "org_central_red_army",
+    "title": "待核验结构测试路线A",
+    "route_role": "main",
+    "review_status": "draft",
+    "created_at": "2026-07-23T00:00:00.000Z",
+    "updated_at": "2026-07-23T00:00:00.000Z",
+    "data_version": "v0.1-t06-sample-draft"
+  },
+  {
+    "route_id": "route_t06_related_placeholder",
+    "topic_id": "topic_long_march_v1",
+    "organization_id": "org_central_red_army",
+    "title": "待核验结构测试路线B",
+    "route_role": "related",
+    "review_status": "draft",
+    "created_at": "2026-07-23T00:00:00.000Z",
+    "updated_at": "2026-07-23T00:00:00.000Z",
+    "data_version": "v0.1-t06-sample-draft"
+  }
+]

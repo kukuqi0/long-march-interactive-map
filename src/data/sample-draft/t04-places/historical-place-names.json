@@ -1,0 +1,122 @@
+[
+  {
+    "historical_name_id": "hname_t04_s0_placeholder",
+    "place_id": "place_t04_s0_placeholder",
+    "name": "结构测试历史名S0（待核验）",
+    "name_type": "official",
+    "valid_from": null,
+    "valid_to": null,
+    "claim_id": "claim_t04_s0_placeholder",
+    "created_at": "2026-07-17T00:00:00.000Z",
+    "updated_at": "2026-07-17T00:00:00.000Z",
+    "data_version": "v0.1-t04-sample-draft"
+  },
+  {
+    "historical_name_id": "hname_t04_s1_placeholder",
+    "place_id": "place_t04_s1_placeholder",
+    "name": "结构测试历史名S1（待核验）",
+    "name_type": "common",
+    "valid_from": null,
+    "valid_to": null,
+    "claim_id": "claim_t04_s1_placeholder",
+    "created_at": "2026-07-17T00:00:00.000Z",
+    "updated_at": "2026-07-17T00:00:00.000Z",
+    "data_version": "v0.1-t04-sample-draft"
+  },
+  {
+    "historical_name_id": "hname_t04_s1_alias_placeholder",
+    "place_id": "place_t04_s1_placeholder",
+    "name": "结构测试别名S1（待核验）",
+    "name_type": "alias",
+    "valid_from": null,
+    "valid_to": null,
+    "claim_id": "claim_t04_s1_alias_placeholder",
+    "created_at": "2026-07-17T00:00:00.000Z",
+    "updated_at": "2026-07-17T00:00:00.000Z",
+    "data_version": "v0.1-t04-sample-draft"
+  },
+  {
+    "historical_name_id": "hname_t04_s2_placeholder",
+    "place_id": "place_t04_s2_placeholder",
+    "name": "结构测试历史名S2（待核验）",
+    "name_type": "official",
+    "valid_from": null,
+    "valid_to": null,
+    "claim_id": "claim_t04_s2_placeholder",
+    "created_at": "2026-07-17T00:00:00.000Z",
+    "updated_at": "2026-07-17T00:00:00.000Z",
+    "data_version": "v0.1-t04-sample-draft"
+  },
+  {
+    "historical_name_id": "hname_t04_s2_transcription_placeholder",
+    "place_id": "place_t04_s2_placeholder",
+    "name": "T04 S2 placeholder transcription",
+    "name_type": "transcription",
+    "valid_from": null,
+    "valid_to": null,
+    "claim_id": "claim_t04_s2_transcription_placeholder",
+    "created_at": "2026-07-17T00:00:00.000Z",
+    "updated_at": "2026-07-17T00:00:00.000Z",
+    "data_version": "v0.1-t04-sample-draft"
+  },
+  {
+    "historical_name_id": "hname_t04_s3_placeholder",
+    "place_id": "place_t04_s3_placeholder",
+    "name": "结构测试地区名S3（待核验）",
+    "name_type": "common",
+    "valid_from": null,
+    "valid_to": null,
+    "claim_id": "claim_t04_s3_placeholder",
+    "created_at": "2026-07-17T00:00:00.000Z",
+    "updated_at": "2026-07-17T00:00:00.000Z",
+    "data_version": "v0.1-t04-sample-draft"
+  },
+  {
+    "historical_name_id": "hname_t04_s4_placeholder",
+    "place_id": "place_t04_s4_placeholder",
+    "name": "结构测试廊道名S4（待核验）",
+    "name_type": "common",
+    "valid_from": null,
+    "valid_to": null,
+    "claim_id": "claim_t04_s4_placeholder",
+    "created_at": "2026-07-17T00:00:00.000Z",
+    "updated_at": "2026-07-17T00:00:00.000Z",
+    "data_version": "v0.1-t04-sample-draft"
+  },
+  {
+    "historical_name_id": "hname_t04_s5_placeholder",
+    "place_id": "place_t04_s5_placeholder",
+    "name": "结构测试方向名S5（待核验）",
+    "name_type": "common",
+    "valid_from": null,
+    "valid_to": null,
+    "claim_id": "claim_t04_s5_placeholder",
+    "created_at": "2026-07-17T00:00:00.000Z",
+    "updated_at": "2026-07-17T00:00:00.000Z",
+    "data_version": "v0.1-t04-sample-draft"
+  },
+  {
+    "historical_name_id": "hname_t04_su_placeholder",
+    "place_id": "place_t04_su_placeholder",
+    "name": "结构测试未知地点名SU（待核验）",
+    "name_type": "alias",
+    "valid_from": null,
+    "valid_to": null,
+    "claim_id": "claim_t04_su_placeholder",
+    "created_at": "2026-07-17T00:00:00.000Z",
+    "updated_at": "2026-07-17T00:00:00.000Z",
+    "data_version": "v0.1-t04-sample-draft"
+  },
+  {
+    "historical_name_id": "hname_liping_city_1934",
+    "place_id": "place_liping_city_1934",
+    "name": "黎平县城",
+    "name_type": "common",
+    "valid_from": null,
+    "valid_to": null,
+    "claim_id": "claim_place_liping_city_had_name",
+    "created_at": "2026-08-24T00:00:00.000Z",
+    "updated_at": "2026-08-24T00:00:00.000Z",
+    "data_version": "v0.1-t04-sample-draft"
+  }
+]

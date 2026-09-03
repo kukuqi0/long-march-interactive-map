@@ -1,0 +1,16 @@
+[
+  {
+    "relation_id": "rel_red_first_corps_renamed_to_first_army_1935_07_21",
+    "subject_organization_id": "org_red_first_corps",
+    "relation_type": "renamed_to",
+    "object_organization_id": "org_red_first_corps",
+    "valid_from": "1935-07-21",
+    "valid_to": "1935-09-22",
+    "time_precision": "T4",
+    "claim_id": "claim_org_red_first_corps_renamed_to_first_army_1935_07_21",
+    "review_status": "draft",
+    "created_at": "2026-08-24T00:00:00.000Z",
+    "updated_at": "2026-08-24T00:00:00.000Z",
+    "data_version": "v0.2-t12-structural-dispute-sample-draft"
+  }
+]

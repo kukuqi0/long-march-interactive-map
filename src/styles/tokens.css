@@ -1,0 +1,40 @@
+:root {
+  color: #25221d;
+  background: #f2eee5;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    'Microsoft YaHei',
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  --color-page: #f2eee5;
+  --color-surface: #fffdf8;
+  --color-surface-muted: #f7f2e8;
+  --color-text: #25221d;
+  --color-text-muted: #625d53;
+  --color-border: #cfc5b4;
+  --color-accent: #7d2d25;
+  --color-accent-soft: #f3dfd9;
+  --color-empty: #3e6752;
+  --color-loading: #735d22;
+  --color-unavailable: #873d35;
+  --shadow-panel: 0 0.25rem 1rem rgb(57 45 28 / 8%);
+
+  --space-1: 0.375rem;
+  --space-2: 0.625rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --radius-small: 0.5rem;
+  --radius-panel: 0.875rem;
+  --layout-gap: clamp(0.75rem, 1.25vw, 1.25rem);
+  --layout-padding: clamp(0.75rem, 2vw, 2rem);
+  --sidebar-left: clamp(17.5rem, 20vw, 20rem);
+  --sidebar-right: clamp(22.5rem, 25vw, 26.25rem);
+}

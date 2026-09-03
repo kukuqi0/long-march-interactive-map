@@ -1,0 +1,18 @@
+[
+  {
+    "dispute_id": "dispute_seg_t06_r4_placeholder_route_variants",
+    "title": "R4结构测试路线A/B替代方案",
+    "dispute_type": "route",
+    "dispute_status": "D2",
+    "competing_claim_ids": [
+      "claim_seg_t06_r4_placeholder_route_variant_a",
+      "claim_seg_t06_r4_placeholder_route_variant_b"
+    ],
+    "adopted_claim_id": null,
+    "editorial_note": "sample-draft结构测试争议：A/B当前只表示既有结构测试替代几何，用于验证争议模型与界面；尚未完成真实史料争议链，当前没有正式采纳任何方案，不得用于发布历史结论。",
+    "review_status": "draft",
+    "created_at": "2026-08-25T00:00:00.000Z",
+    "updated_at": "2026-08-25T00:00:00.000Z",
+    "data_version": "v0.2-t12-structural-dispute-sample-draft"
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "dataset_tier": "sample-draft",
+  "is_sample": true,
+  "publication_allowed": false,
+  "review_status": "draft",
+  "data_version": "v0.1-t04-sample-draft",
+  "content_note": "当前数据集包含结构测试待核验占位数据和极少量有稳定网页证据的draft真实样例；全部为sample-draft且不得作为正式史实引用"
+}

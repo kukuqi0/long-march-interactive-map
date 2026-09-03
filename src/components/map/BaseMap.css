@@ -1,0 +1,93 @@
+.base-map {
+  position: relative;
+  min-height: clamp(22rem, 56vh, 44rem);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+  background: #e9e4d8;
+}
+
+.base-map__canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.base-map__canvas:focus-visible {
+  outline: 0.2rem solid var(--color-accent);
+  outline-offset: -0.25rem;
+}
+
+.base-map__status {
+  position: absolute;
+  z-index: 2;
+  top: var(--space-2);
+  left: var(--space-2);
+  display: grid;
+  gap: 0.125rem;
+  max-width: min(24rem, calc(100% - 5.5rem));
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgb(37 34 29 / 22%);
+  border-radius: var(--radius-small);
+  background: rgb(255 253 248 / 94%);
+  box-shadow: var(--shadow-panel);
+  color: var(--color-text);
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  pointer-events: none;
+}
+
+.base-map__status span {
+  color: var(--color-text-muted);
+}
+
+.base-map--online .base-map__status {
+  border-left: 0.3rem solid var(--color-empty);
+}
+
+.base-map--loading .base-map__status {
+  border-left: 0.3rem solid var(--color-loading);
+}
+
+.base-map--degraded .base-map__status,
+.base-map--fatal .base-map__status {
+  border-left: 0.3rem solid var(--color-unavailable);
+}
+
+.base-map .maplibregl-ctrl button:focus-visible,
+.base-map .maplibregl-ctrl-attrib-button:focus-visible,
+.base-map .maplibregl-ctrl-attrib a:focus-visible {
+  outline: 0.18rem solid var(--color-accent);
+  outline-offset: 0.1rem;
+}
+
+.base-map .maplibregl-ctrl-attrib {
+  max-width: calc(100% - 4.5rem);
+  color: #25221d;
+}
+
+.base-map .maplibregl-ctrl-attrib a {
+  color: #5f1f19;
+}
+
+@media (max-width: 48rem) {
+  .base-map {
+    min-height: clamp(21rem, 58vh, 32rem);
+  }
+}
+
+@media (max-width: 30rem) {
+  .base-map {
+    min-height: 22rem;
+    border-radius: var(--radius-small);
+  }
+
+  .base-map__status {
+    max-width: calc(100% - 4.75rem);
+    font-size: 0.75rem;
+  }
+
+  .base-map .maplibregl-ctrl-attrib {
+    max-width: calc(100% - 3.5rem);
+    font-size: 0.625rem;
+  }
+}

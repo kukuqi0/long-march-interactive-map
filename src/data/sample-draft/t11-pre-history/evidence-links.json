@@ -1,0 +1,67 @@
+[
+  {
+    "evidence_link_id": "ev_rename_first_corps_12371_1935",
+    "claim_id": "claim_org_red_first_corps_renamed_to_first_army_1935_07_21",
+    "source_id": "src_12371_red_army_1935_chronology",
+    "evidence_relation": "supports",
+    "locator": "页面正文“7月21日”条目（页面发布日期2014-10-14）",
+    "excerpt": "另将红一方面军的第一、三、五、九军团依次改称第一、三、五、三十二军。",
+    "interpretation_note": "仅支持1935-07-21第一军团改称第一军；不证明拆分、合并、隶属关系或1935年11月连续性。",
+    "review_status": "draft",
+    "created_at": "2026-08-24T00:00:00.000Z",
+    "updated_at": "2026-08-24T00:00:00.000Z",
+    "data_version": "v0.2-t12-structural-dispute-sample-draft"
+  },
+  {
+    "evidence_link_id": "ev_liping_name_12371_2021",
+    "claim_id": "claim_place_liping_city_had_name",
+    "source_id": "src_12371_zunyi_turning_point_2021",
+    "evidence_relation": "supports",
+    "locator": "页面正文，1934年12月15日条目",
+    "excerpt": "12月15日，红一军团攻占贵州黎平县城。",
+    "interpretation_note": "仅支持资料以“黎平县城”指称该地点；不证明现代行政区划连续性、精确法律建制名称或战斗点坐标。",
+    "review_status": "draft",
+    "created_at": "2026-08-24T00:00:00.000Z",
+    "updated_at": "2026-08-24T00:00:00.000Z",
+    "data_version": "v0.2-t12-structural-dispute-sample-draft"
+  },
+  {
+    "evidence_link_id": "ev_liping_name_heritage_2015",
+    "claim_id": "claim_place_liping_city_had_name",
+    "source_id": "src_liping_heritage_2015",
+    "evidence_relation": "background",
+    "locator": "“黎平县·黎平会议会址”条目，位置与地理坐标段",
+    "excerpt": "位于黎平县德凤镇二郎坡52号，地理坐标为：东经109°08′04.9″，北纬26°14′04.8″。",
+    "interpretation_note": "仅作为黎平县城S1聚落级代表点的方法与地点识别背景；不支持1934-12-15具体战斗位置。",
+    "review_status": "draft",
+    "created_at": "2026-08-24T00:00:00.000Z",
+    "updated_at": "2026-08-24T00:00:00.000Z",
+    "data_version": "v0.2-t12-structural-dispute-sample-draft"
+  },
+  {
+    "evidence_link_id": "ev_liping_capture_participant_12371_2021",
+    "claim_id": "claim_event_liping_capture_had_participant",
+    "source_id": "src_12371_zunyi_turning_point_2021",
+    "evidence_relation": "supports",
+    "locator": "页面正文，1934年12月15日条目",
+    "excerpt": "12月15日，红一军团攻占贵州黎平县城。",
+    "interpretation_note": "支持红一军团参与该攻占事件；不支持具体战斗位置、战斗过程、伤亡或行军路线。",
+    "review_status": "draft",
+    "created_at": "2026-08-24T00:00:00.000Z",
+    "updated_at": "2026-08-24T00:00:00.000Z",
+    "data_version": "v0.2-t12-structural-dispute-sample-draft"
+  },
+  {
+    "evidence_link_id": "ev_liping_capture_participant_pla_2024",
+    "claim_id": "claim_event_liping_capture_had_participant",
+    "source_id": "src_pla_liping_meeting_2024",
+    "evidence_relation": "supports",
+    "locator": "页面正文首段，1934年12月15日条目",
+    "excerpt": "1934年12月15日，红1军团击败驻守黎平的守军，攻占了黎平县城。",
+    "interpretation_note": "独立支持红一军团参与攻占黎平县城；不支持具体战斗坐标或路线。",
+    "review_status": "draft",
+    "created_at": "2026-08-24T00:00:00.000Z",
+    "updated_at": "2026-08-24T00:00:00.000Z",
+    "data_version": "v0.2-t12-structural-dispute-sample-draft"
+  }
+]
